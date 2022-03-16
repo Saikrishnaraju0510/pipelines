@@ -32,7 +32,7 @@ beam_options.view_as(StandardOptions).streaming=True
 #beam_options.view_as(SetupOptions).save_main_session = True
 client = bigquery.Client()
 
-dataset_id = "modular-asset-332406.airflow3"
+dataset_id = "sai-new.airflow3"
 
 try:
 	client.get_dataset(dataset_id)

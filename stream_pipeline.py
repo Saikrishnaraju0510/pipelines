@@ -40,7 +40,7 @@ try:
 except:
 	dataset = bigquery.Dataset(dataset_id)  #
 
-	dataset.location = "europe"
+	dataset.location = "EU"
 	dataset.description = "dataset"
 
 	dataset_ref = client.create_dataset(dataset)

@@ -21,18 +21,18 @@ args, beam_args = parser.parse_known_args()
 beam_options = PipelineOptions(
     beam_args,
     runner='DataflowRunner',
-    temp_location='gs://sai_1999/',
-    service_account_email='demo-py@modular-asset-332406.iam.gserviceaccount.com',
-    region='us-central1',
-    project='modular-asset-332406',
-    stage_location='gs://sai_1999/stage',
+    temp_location='gs://sai0510/,
+    service_account_email='saikrishna@sairaju0510.iam.gserviceaccount.com',
+    region='europe-north1',
+    project='sairaju0510',
+    stage_location='gs://sai0510/stage',
     #save_main_session=True
     )
 beam_options.view_as(StandardOptions).streaming=True
 #beam_options.view_as(SetupOptions).save_main_session = True
 client = bigquery.Client()
 
-dataset_id = "modular-asset-332406.airflow3"
+dataset_id = "sairaju0510.airflow3"
 
 try:
 	client.get_dataset(dataset_id)
@@ -40,7 +40,7 @@ try:
 except:
 	dataset = bigquery.Dataset(dataset_id)  #
 
-	dataset.location = "US"
+	dataset.location = "europe"
 	dataset.description = "dataset"
 
 	dataset_ref = client.create_dataset(dataset)
@@ -49,7 +49,7 @@ def decoding(e):
   e=e.decode('utf-8')
   return e[:-2]
  
-input_subscription='projects/modular-asset-332406/subscriptions/beam2-sub'
+input_subscription='projects/sairaju0510/subscriptions/beam2-sub'
 def to_json(fields):
     json_str = {"Invoice_ID":fields[0],
                  "Branch": fields[1],

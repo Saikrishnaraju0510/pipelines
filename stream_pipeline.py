@@ -21,7 +21,7 @@ args, beam_args = parser.parse_known_args()
 beam_options = PipelineOptions(
     beam_args,
     runner='DataflowRunner',
-    temp_location='gs://sai0510/,
+    temp_location='gs://sai0510/',
     service_account_email='saikrishna@sairaju0510.iam.gserviceaccount.com',
     region='europe-north1',
     project='sairaju0510',

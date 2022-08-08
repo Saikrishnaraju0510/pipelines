@@ -21,18 +21,18 @@ args, beam_args = parser.parse_known_args()
 beam_options = PipelineOptions(
     beam_args,
     runner='DataflowRunner',
-    temp_location='gs://sai_9991/',
-    service_account_email='sai-715@sai-new.iam.gserviceaccount.com',
-    region='us-central1',
-    project='sai-new',
-    stage_location='gs://sai_9991/stage',
+    temp_location='gs://sai0510/',
+    service_account_email='saikrishna@sairaju0510.iam.gserviceaccount.com',
+    region='europe-north1',
+    project='sairaju0510',
+    stage_location='gs://sai0510/stage',
     #save_main_session=True
     )
 beam_options.view_as(StandardOptions).streaming=True
 #beam_options.view_as(SetupOptions).save_main_session = True
 client = bigquery.Client()
 
-dataset_id = "sai-new.airflow3"
+dataset_id = "sai0510.airflow5"
 
 try:
 	client.get_dataset(dataset_id)
@@ -40,7 +40,7 @@ try:
 except:
 	dataset = bigquery.Dataset(dataset_id)  #
 
-	dataset.location = "US"
+	dataset.location = "EU"
 	dataset.description = "dataset"
 
 	dataset_ref = client.create_dataset(dataset)
